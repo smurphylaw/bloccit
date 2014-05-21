@@ -8,10 +8,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @posts = Post.new
   end
 
   def create
+    @posts = current_user.posts.build(params.require(:post).permit(:title, :body))
     @post = Post.new(params.require(:post).permit(:title, :body))
     if @post.save
       flash[:notice] = "Post was saved."
