@@ -82,5 +82,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # http://smurphylaw-bloccit.herokuapp.com
-  config.action_mailer.default_url options = { host: 'smurphylaw-bloccit.herokuapp.com'}
+  config.action_mailer.default_url options = { host: 'smurphy-bloccit.herokuapp.com'}
 end
