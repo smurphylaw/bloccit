@@ -80,4 +80,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # http://smurphylaw-bloccit.herokuapp.com
+  config.action_mailer.default_url options = { host: 'smurphylaw-bloccit.herokuapp.com'}
 end
