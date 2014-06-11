@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topic = Topic.new
+    @topics = Topic.paginate(page: params[:page], per_page: 10)
     authorize @topics
   end
 
@@ -11,7 +12,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @posts = @topic.posts
+    authorize @topic
+    @posts = @topic.posts.paginate(page: params[:page], per_page: 10)
   end
 
   def edit
@@ -33,6 +35,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
     authorize @topic
+    
     if @topic.update_attributes(topic_params)
       redirect_to @topic
     else

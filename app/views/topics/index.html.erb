@@ -14,11 +14,14 @@
         </div>
       </div>
     <% end %>
-  </div>
-  <div class="col-md-4">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
-    <% end %>
+    <%= will_paginate @topics %>
+
+    <div class="row">
+      <div class="col-md-8">
+        <% if policy(Topic.new).create? %>
+        <%= link_to "New Topic", new_topic_path, class: 'btn btn-success' %>
+      <% end %>
+      </div>
   </div>
 </div>
 
