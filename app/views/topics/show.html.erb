@@ -9,6 +9,10 @@
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
       <div class="media">
+        <%= link_to [@topic, post], class: 'pull-left' do %>
+          <%= image_tag(post.image.thumb.url) if post.image? %>
+        <% end %>
+        
         <div class="media-body">
           <h4 class="media-heading">
             <%= link_to (markdown post.title), [@topic, post] %>
@@ -25,6 +29,7 @@
   <div class="col-md-4">
     <% if policy(Post.new).create? %>
       <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
+      
     <% end %>
   </div>
 </div>
