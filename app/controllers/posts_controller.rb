@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def new
     @topic = Topic.find(params[:topic_id])
     @post = Post.new
-    authorize! :create, Post, message: "You need to be a member to create a new post."
+    authorize @post
   end
 
   def create

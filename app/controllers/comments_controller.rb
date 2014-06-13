@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @post = @topic.posts.find( params[:post_id] )
     @comments = @post.comments
 
-    @comment = current.user.comments.build( params[:comment] )
+    @comment = current_user.comments.build(comment_params)
     @comment.post = @post
 
     if @comment.save
@@ -33,4 +33,8 @@ class CommentsController < ApplicationController
     end
   end
 
+private
+  def comment_params
+    params.require(:comment).permit(:body, :user_id)
+  end
 end
