@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   after_create :create_vote
+  has_many  :favorites, dependent: :destroy
   mount_uploader :image, ImageUploader
 
   default_scope { order('rank DESC') } 
