@@ -7,9 +7,11 @@ class Comment < ActiveRecord::Base
   
   after_create :send_favorite_emails
 
+  default_scope { order('updated_at DESC') }
+  
   private
 
-  def self_favorite_emails
+  def send_favorite_emails
     self.post.favorites.each do |favorite|
       
       if favorite.user_id != self.user && favorite.user.email_favorites?
