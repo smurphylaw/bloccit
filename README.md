@@ -4,29 +4,17 @@
 
 Made with my mentor at [Bloc](http://bloc.io).
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Features:
+* Allow users create an account, create posts and make comments. 
 
-Things you may want to cover:
+* Allow users to add avatar to their profile
 
-* Ruby version
+* Image can be uploaded
 
-* System dependencies
+* Users can vote up or down the post
 
-* Configuration
+* Ranking algorithm of the posts implemented
 
-* Database creation
+* Build-in favoriting, using after-actions and automatic emails
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Apply Javascript and jQuery to manipulate data through AJAX
